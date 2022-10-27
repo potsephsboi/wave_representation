@@ -3,7 +3,7 @@ from helper import *
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
-def draw(start_time):
+def draw():
     WIN.fill(WHITE)
     pygame.draw.line(WIN, BLACK, (50, HEIGHT//2), (WIDTH-50, HEIGHT//2))
     for p in POINTS:
@@ -14,7 +14,6 @@ def draw(start_time):
     pygame.display.update()
 
 def main():
-    start_time = time.time()
     clock = pygame.time.Clock()
     clock.tick(60)
     run = True
@@ -23,7 +22,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
         
-        draw(start_time)
+        draw()
 
 
 
