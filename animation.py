@@ -1,5 +1,5 @@
 from helper import *
-
+import threading
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -15,17 +15,25 @@ def draw():
 
 def main():
     clock = pygame.time.Clock()
-    clock.tick(60)
+    clock.tick(30)
+    
+    t = threading.Thread(target=update_freq, daemon=True)
+    t.start()
     run = True
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                
                 run = False
-        
+
         draw()
 
 
-
+def update_freq():
+    while True:
+        Point.ANG_FREQ = float(input('Update angle frequency: '))
+    
+    # Point.ANG_FREQ += 0.0000001
 
 if __name__ == '__main__':
     main()

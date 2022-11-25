@@ -11,7 +11,7 @@ WHITE = (255, 255, 255)
 
 class Point:
     MAX_Y = 50
-    ANG_FREQ = 10
+    ANG_FREQ = 1
     def __init__(self, pos, start_time) -> None:
         self.pos = pos
         self.x = pos[0]
