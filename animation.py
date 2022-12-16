@@ -23,8 +23,10 @@ def main():
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                
                 run = False
+            if event.type == pygame.MOUSEBUTTONUP:
+                Point.AMPLITUDE = 50
+                Point.START_TIME = time.time()
 
         draw()
 
@@ -32,8 +34,13 @@ def main():
 def update_freq():
     while True:
         Point.ANG_FREQ = float(input('Update angle frequency: '))
-    
-    # Point.ANG_FREQ += 0.0000001
-
+        
 if __name__ == '__main__':
+    while True:
+        is_decr =  input('Should oscillation be decreasing? y/n ').upper() 
+        if is_decr.upper() not in ['Y', 'N']:
+            print('please answer y (yes) or n (no)')
+        else:
+            Point.IS_DECR = True if is_decr.upper() == 'Y' else False
+            break
     main()
